@@ -14,7 +14,7 @@ function crearlista(indice){
 }
 
 
-function agregarAmigo(){
+function agregarAmigo(){    
     let nombreAmigo = (document.getElementById('amigo').value).toLowerCase();    
     document.getElementById('amigo').value = '';
     if(!regex.test(nombreAmigo)){
@@ -24,6 +24,7 @@ function agregarAmigo(){
     }else{
         amigos.push(nombreAmigo);
         listaAmigos();
+        document.getElementById('reiniciar').removeAttribute('disabled');
     }    
 }
 
@@ -44,6 +45,13 @@ function sortearAmigo(){
         limpiarLista('resultado').appendChild(crearlista(numAmigo));
         
     }    
+}
+
+function reiniciar(){
+    amigos = [];
+    limpiarLista('listaAmigos');
+    limpiarLista('resultado');
+    document.getElementById('reiniciar').setAttribute('disabled','true');
 }
 
 
